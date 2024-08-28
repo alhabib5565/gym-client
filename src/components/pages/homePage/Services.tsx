@@ -36,7 +36,7 @@ const Services = () => {
     <div className="pt-16 lg:pt-28 bg-black ">
       <Container>
         <SectionHeader
-          boldText="Workout Classes"
+          boldText="Workout Services"
           simpleText="Build your body strong"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
