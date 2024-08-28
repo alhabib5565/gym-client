@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Container from "../Container";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -12,13 +12,13 @@ import { motion } from "framer-motion";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
 const Navbar = () => {
-  const [hidden, setHidden] = useState(false);
+  const [sticky, setSticky] = useState(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latestValue) => {
-    if (latestValue > 80) {
-      setHidden(true);
+    if (latestValue > 10) {
+      setSticky(true);
     } else {
-      setHidden(false);
+      setSticky(false);
     }
   });
   return (
@@ -26,24 +26,19 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 260, damping: 15 }}
+      className={cn("fixed w-full z-50", { "bg-black": sticky })}
     >
       <Container className="relative">
         <div
           className={cn(
-            " h-[90px]  flex justify-between lg:justify-normal items-center gap-5",
-            { "opacity-0": hidden }
+            " h-[90px]  flex justify-between lg:justify-normal items-center gap-5"
           )}
         >
           {/* mobile */}
           <MobileNav />
           {/* desktop */}
           <div
-            className={cn(
-              "flex-1 hidden lg:flex justify-between items-center",
-              {
-                "hidden opacity-0": hidden,
-              }
-            )}
+            className={cn("flex-1 hidden lg:flex justify-between items-center")}
           >
             <Link href="/">
               <Image

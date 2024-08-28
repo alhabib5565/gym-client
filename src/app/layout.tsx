@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(teko.className, "bg-[#0a0a0a] ")}>{children}</body>
+      <body className={cn(teko.className, "bg-[#0a0a0a] text-white")}>
+        {children}
+      </body>
     </html>
   );
 }
