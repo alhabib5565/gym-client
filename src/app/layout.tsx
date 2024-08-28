@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Teko } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const teko = Teko({ subsets: ["latin"] });
+import { teko } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -7,6 +7,8 @@ import {
 import React from "react";
 import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
+import { cn } from "@/lib/utils";
+import { dm_sans } from "@/lib/fonts";
 
 const servicesData = [
   {
@@ -49,7 +51,12 @@ const Services = () => {
                 {service.title}
               </h2>
 
-              <p className="relative text-xl text-justify tracking-[0.8px] pb-8 text-[#999] group-hover:text-white transition-colors duration-300 ease-in-out">
+              <p
+                className={cn(
+                  dm_sans.className,
+                  "relative text-lg text-justify pb-8 text-[#999] group-hover:text-white transition-colors duration-300 ease-in-out"
+                )}
+              >
                 {service.description}
               </p>
 
